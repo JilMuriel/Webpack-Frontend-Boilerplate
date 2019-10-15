@@ -7,7 +7,6 @@ const path = require('path');
 // This is main configuration object.
 // Here you write different options and tell Webpack what to do
 module.exports = {
-
     // Path to your entry point. From this file Webpack will begin his work
     entry: './src/javascript/index.js',
 
@@ -50,7 +49,22 @@ module.exports = {
                     }
                 ]
             },
+            {
+                // Now we apply rule for images
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: [
+                    {
+                        // Using file-loader for these files
+                        loader: "file-loader",
 
+                        // In options we can set different things like format
+                        // and directory to save
+                        options: {
+                            outputPath: 'images'
+                        }
+                    }
+                ]
+            }
 
 
 
